@@ -1,0 +1,36 @@
+<nav>
+    <div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AlessaX</title>
+    <link href="files/sources/fontawesome-5.11.2/css/all.css" rel="stylesheet">
+    <link href="files/css/home.css" rel="stylesheet">
+    <script src="files/sources/sweetalert2/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="files/sources/sweetalert2/sweetalert2.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2:400,500,700&display=swap" rel="stylesheet">
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+</div>
+<body>
+<body>
+    <div class="wrapper">
+        <div class="header d-flex">
+            <div class="header-part d-flex header-left">
+                <p class="logo">Bfactory</p>
+            </div>
+            {% if session.logged_in %}
+            <div class="header-part d-flex header-right">
+                <a class="btn-nav" href="dashboardA">DASHBOARD</a>
+                <a class="btn-nav" href="homeA">HOME</a>
+                <a class="btn-nav" href="vendidos">TOP</a>
+                <a class="btn-nav" href="arizone">ARIZONE</a>
+                <a class="btn-nav" href="salir">SALIR</a>
+            </div>
+            {% else %}
+              <li><a href="/Alessalogin">Ingresar</a></li>
+            {% endif %}
+        </div>
+</nav>

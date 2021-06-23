@@ -1,0 +1,139 @@
+/* --- RESET --- */
+* { font-family: 'Baloo Thambi 2', sans-serif; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section { display: block; }
+
+body { line-height: 1; }
+
+ol, ul { list-style: none; }
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body{ background-color: #F3F0F5; }
+
+input { margin: 0; }
+/* --- RESET --- */
+
+.d-flex { display: flex; }
+
+.flex-column { flex-direction: column; }
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.w-100 { width: 100%; }
+
+.wrapper{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "login login login login login login login login login"
+}
+
+.title {
+    font-size: 62px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 0.5em;
+}
+
+.subtitle {
+    font-size: 48px;
+    letter-spacing: 1px;
+}
+
+.title-form{
+    font-size: 18px;
+    margin-bottom: 1em;
+}
+
+.login {
+    grid-area: login; 
+    background-color: white;
+    grid-row: 1;
+    padding: 1em;
+}
+
+.hero{
+    grid-area: hero;
+    background-color: #232f3e;
+    color: white;
+    padding: 4em;
+    justify-content: center;
+    display: none;
+}
+
+.input,
+.textarea  {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 1em 0 1em 0;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #ffa41b;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.button:hover, .button:active, .button:focus { background: #e59318; }
+
+@media (min-width: 992px) { 
+
+    .wrapper { grid-template-areas: "login login login login hero hero hero hero hero"; }
+
+    .hero{ display: flex; }
+
+}
+

@@ -1,0 +1,262 @@
+{% extends 'layoutA.html' %}
+
+{% block body %}
+
+        <!-- FOR AMAZON -->
+        <form id="search" class="formnav">
+            <div class="form-row" style="margin-bottom:0.5em; width:20%;">
+                <div class="custom-select">
+                    <select id="year">
+                        <option value="0">AÑO</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row" style="margin-bottom:0.5em; width:20%;">
+                <div class="custom-select">
+                    <select id="month">
+                        <option value="0">MES</option>
+                        <option value="1">ENERO</option>
+                        <option value="2">FEBRERO</option>
+                        <option value="3">MARZO</option>
+                        <option value="4">ABRIL</option>
+                        <option value="5">MAYO</option>
+                        <option value="6">JUNIO</option>
+                        <option value="7">JULIO</option>
+                        <option value="8">AGOSTO</option>
+                        <option value="9">SEPTIEMBRE</option>
+                        <option value="10">OCTUBRE</option>
+                        <option value="11">NOVIEMBRE</option>
+                        <option value="12">DICIEMBRE</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row button-row" style="margin-bottom:0.5em; width:20%;">
+                <button class="button" type="submit">BUSCAR EN AMAZON</button>
+            </div>
+        </form>
+<div class="container-fluid" style="background-color:#f2f2f2;">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 d-flex align-items-center justify-content-center mb-3">
+                        <div class="card w-100">
+                            <div class="card-body">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span class="text-primary">Ingresos</span>
+                                    <span id="incomes_total"> </span>
+                                </h5>
+                                <h6 class="card-subtitle border-bottom mb-2 text-muted d-flex">
+                                    <span class="w-50"></span>
+                                    <span class="w-25 d-flex justify-content-end">Débitos</span>
+                                    <span class="w-25 d-flex justify-content-end">Créditos</span>
+                                </h6>
+                                <div id="incomes"><p class="card-text d-flex">
+            {% set subtotalP = 0 %}
+            {% set subtotalN = 0 %}
+            {{% for element in orders%}}
+            <span class="w-50">Venta de productos realizadas por el vendedor</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+            <span class="w-25 d-flex justify-content-end">$ {{element[0]}}</span>
+            {% set subtotalP = subtotalP + elemetn[0]|int %}
+            {{% endfor %}}
+        </p>
+        <p class="card-text d-flex">
+            {{% for element in returns%}}
+            <span class="w-50">Reembolsos de venta de producto realizada por el vendedor</span>
+            <span class="w-25 d-flex justify-content-end">$ {{element[0]}}</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+            {% set subtotalN = subtotalN + elemetn[0]|int %}
+            {{% endfor %}}
+            
+        </p>
+        <p class="card-text d-flex">
+            {{% for element in orders%}}
+            <span class="w-50">Créditos de envío</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+            <span class="w-25 d-flex justify-content-end">$ {{element[1]}}</span>
+            {% set subtotalP = subtotalP + elemetn[1]|int %}
+            {{% endfor %}}
+        </p>
+        <p class="card-text d-flex">
+            {{% for element in returns%}}
+            <span class="w-50">Reembolsos de créditos de envío</span>
+            <span class="w-25 d-flex justify-content-end">$ {{element[1]}}</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+            {% set subtotalN = subtotalN + elemetn[1]|int %}
+            {{% endfor %}}
+        </p><p class="card-text d-flex border-top">
+            
+            
+            <span class="w-50 d-flex justify-content-end font-weight-bold align-items-center">SUBTOTAL</span>
+            <span class="w-25 d-flex justify-content-end font-weight-bold" id="ingresosP">$ {{subtotalN}}</span>
+            <span class="w-25 d-flex justify-content-end font-weight-bold"id="ingresosN">$ {{subtotalP}}</span>
+        </p>
+            </div>        
+            </div>
+        </div>
+                    </div>
+            <div class="col-12 d-flex align-items-center justify-content-center mb-3">
+            <div class="card w-100">
+            <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between border-bottom pb-2">
+                <span class="text-primary">Gastos</span>
+                <span id="expenses_total"></span>
+            </h5>
+            <h6 class="card-subtitle border-bottom mb-2 text-muted d-flex">
+                <span class="w-50"></span>
+                <span class="w-25 d-flex justify-content-end">Débitos</span>
+                <span class="w-25 d-flex justify-content-end">Créditos</span>
+            </h6>
+            <div id="expenses"><p class="card-text d-flex">
+            {% set subtotalP = 0 %}
+            {% set subtotalN = 0 %}
+            {{% for element in orders %}}
+            <span class="w-50">Tarifas de venta realizadas por el vendedor</span>
+            <span class="w-25 d-flex justify-content-end">$ {{element[2]}}</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+            {% set subtotalP = subtotalP + elemetn[2]|int %}
+            {{% endfor %}}
+        </p>
+        <p class="card-text d-flex">
+            {{% for element in returns %}}
+            <span class="w-50">Reembolsos de tarifa de venta</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+            <span class="w-25 d-flex justify-content-end">$ {{element[2]}}</span>
+            {% set subtotalN = subtotalN + elemetn[2]|int %}
+            {{% endfor %}}
+        </p>
+            {{set cont =0}}
+            {{% for element in sold %}}
+            <p class="card-text d-flex">
+            {%if cont==1%}
+            <span class="w-50">Reembolsos de créditos de envío</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+            <span class="w-25 d-flex justify-content-end">$ {{element[0]}}</span>
+            {% set subtotalP = subtotalP + elemetn[0]|int %}
+            {% else %}
+            <span class="w-50">Compras de etiqueta de envío</span>
+            <span class="w-25 d-flex justify-content-end">$ {{element[0]}}</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+            {% set subtotalN = subtotalN + elemetn[0]|int %}
+            {% endif %}
+            
+            </p>
+            {% set cont=1 %}
+            {{% endfor %}}
+            {{set cont =0}}
+            {{% for element in sold %}}
+            <p class="card-text d-flex">
+            {%if cont==1%}
+            <span class="w-50">Tarifa de servicio</span>
+            <span class="w-25 d-flex justify-content-end">$ {{element[1]}}</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+            {% set subtotalP = subtotalP + elemetn[0]|int %}
+            {% else %}
+            <span class="w-50">Tarifa de servicio</span>
+            <span class="w-25 d-flex justify-content-end">$ {{element[0]}}</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+            {% set subtotalN = subtotalN + elemetn[0]|int %}
+            {% endif %}
+            
+            </p>
+            {% set cont=1 %}
+            {{% endfor %}}
+            <span class="w-50 d-flex justify-content-end font-weight-bold align-items-center">SUBTOTAL</span>
+            <span class="w-25 d-flex justify-content-end font-weight-bold" id="gastosP">$ {{subtotalP}}</span>
+            <span class="w-25 d-flex justify-content-end font-weight-bold" id="gastosN">$ {{subtotalN}}</span>
+        </p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex align-items-center justify-content-center mb-3">
+                        <div class="card w-100">
+                            <div class="card-body">
+                                <h5 class="card-title d-flex justify-content-between border-bottom pb-2">
+                                    <span class="text-primary">Transferencias</span>
+                                    <span id="trans_total"></span>
+                                </h5>
+                                <h6 class="card-subtitle border-bottom mb-2 text-muted d-flex">
+                                    <span class="w-50"></span>
+                                    <span class="w-25 d-flex justify-content-end">Débitos</span>
+                                    <span class="w-25 d-flex justify-content-end">Créditos</span>
+                                </h6>
+                                <div id="trans">
+            {% set subtotalD = 0 %}
+            {% set subtotalC = 0 %}
+            {% for element in transfer %}
+            {% if element[1]=="-" %}
+            <p class="card-text d-flex">
+            <span class="w-50">element[0]</span>
+            <span class="w-25 d-flex justify-content-end">$ element[1]</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+        </p>
+        <p class="card-text d-flex">
+            <span class="w-50"></span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+        </p>
+        {% set subtotalD = subtotalD + elemetn[1]|int %}
+        {% else %}
+        <p class="card-text d-flex">
+            <span class="w-50">element[0]</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+        </p>
+        <p class="card-text d-flex">
+            <span class="w-50"></span>
+            <span class="w-25 d-flex justify-content-end">$ element[1]</span>
+            <span class="w-25 d-flex justify-content-end">-</span>
+        </p>
+        {% set subtotalC = subtotalC + elemetn[1]|int %}
+        {% endif %}
+        {% endfor %}
+        <p class="card-text d-flex border-top">
+            <span class="w-50 d-flex justify-content-end font-weight-bold align-items-center">SUBTOTAL</span>
+            {% if subtotalD>0 %}
+            <span class="w-25 d-flex justify-content-end font-weight-bold" id="transaciconD">-{{subtotalD}}</span>
+            {% else %}
+            <span class="w-25 d-flex justify-content-end font-weight-bold" id="transaciconC"></span>
+            {% endif %}
+            {% if subtotalC>0 %}
+            <span class="w-25 d-flex justify-content-end" id="transaciconD">{{subtotalC}}</span>
+            {% else %}
+            <span class="w-25 d-flex justify-content-end" id="transaciconC"></span>
+            {% endif %}
+            
+        </p></div>
+                            </div>
+                        </div>
+                    </div>
+        <script type="text/javascript">
+
+            var ingresosP = document.getElementById("ingresosP");
+            var ingresosN = document.getElementById('ingresosN');   
+
+            function res1() {
+                var multi = ingresosP.value - ingresosN.value;
+                document.getElementById("incomes_total").innerHTML=multi;
+            }
+
+            var gastosP = document.getElementById("gastosP");
+            var gastosN = document.getElementById('gastosN');   
+
+            function res2() {
+                var multi = gastosP.value - gastosN.value;
+                document.getElementById("expenses_total").innerHTML=multi;
+            }
+            var transaciconC = document.getElementById("transaciconC");
+            var transaciconD = document.getElementById('transaciconD');   
+
+            function res3() {
+                var multi = transaciconC.value - transaciconD.value;
+                document.getElementById("trans_total").innerHTML=multi;
+            }
+            window.onload=function ejecucion(){
+                res1();
+                res2();
+                res3();
+            }
+        </script>
+{% endblock %}

@@ -1,0 +1,27 @@
+<div id="kpis" class="w-100 d-flex"><div style="width:33%;" class="d-flex flex-column flex-center">
+                        <span>costo de adquisión</span>
+                        <span>$ 0.00</span>
+                    </div>
+                    <div style="width:33%;" class="d-flex flex-column flex-center">
+                        <span>utilidad</span>
+                        <span>$ 0.00</span>
+                    </div>
+                    <div style="width:33%;" class="d-flex flex-column flex-center">
+                        <span>unidades vendidas</span>
+                        <span># 0.00</span>
+                    </div><div style="width:33%;" class="d-flex flex-column flex-center">
+                        <span style="text-align:center;">costo de adquisión (acumulado)</span>
+                        <span>$ 583,971.20</span>
+                    </div>
+                    <div style="width:33%;" class="d-flex flex-column flex-center">
+                        <span style="text-align:center;">utilidad (acumulado)</span>
+                        <span>$ 715,789.44</span>
+                    </div>
+                    <div style="width:33%;" class="d-flex flex-column flex-center">
+                        <span style="text-align:center;">unidades vendidas (acumulado)</span>
+                        <span># 1,528.00</span>
+                    </div>
+                    <div style="width:33%;" class="d-flex flex-column flex-center">
+                        <span style="text-align:center;">credito arizone</span>
+                        <span># 582,056.01</span>
+                    </div></div>
